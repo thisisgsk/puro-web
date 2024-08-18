@@ -8,7 +8,7 @@ const lexend = Lexend({ subsets: ["latin"] });
 export default function App({ Component, pageProps }) {
   return (
     <NextUIProvider>
-      <main className={`puro-theme bg-background text-foreground ${lexend.className}`}>
+      <main className={`puro-theme overflow-x-hidden md:overflow-x-visible bg-background text-foreground ${lexend.className}`}>
         <Component {...pageProps} />
       </main>
     </NextUIProvider>

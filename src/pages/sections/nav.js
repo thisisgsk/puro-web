@@ -20,7 +20,7 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar maxWidth="xl" onMenuOpenChange={setIsMenuOpen}>
+    <Navbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -28,7 +28,7 @@ export default function Nav() {
         />
         <NavbarBrand>
           <Link href="#">
-            <Image src="/purologo.png" width={150} height={150} />
+            <Image src="/purologo.png" width={150} height={150} alt="Puro Logo" />
           </Link>
         </NavbarBrand>
       </NavbarContent>

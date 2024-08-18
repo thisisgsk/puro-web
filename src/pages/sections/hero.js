@@ -17,7 +17,7 @@ export default function Hero() {
 
     return (
         <section id="hero" className="container py-8">
-            <div className="flex flex-col w-screen items-center justify-center text-center gap-10 px-10 mt-8 md:flex-row md:text-left">
+            <div className="flex flex-col w-screen items-center justify-between text-center gap-10 px-10 mt-8 md:flex-row md:text-left">
                 <div className="flex flex-col space-y-6 md:pl-6 lg:pl-28 justify-center items-center md:items-start md:basis-1/3">
                     <Chip color="secondary">Packaged Drinking Water</Chip>
                     <div className="text-5xl font-bold w-[468px]">
@@ -47,7 +47,7 @@ export default function Hero() {
                         height={150}
                     />
                 </div>
-                <div className="hidden lg:basis-1/3 md:relative lg:flex flex-col gap-4">
+                <div className="hidden lg:basis-1/3 md:relative lg:flex flex-col gap-4 overflow-visible">
                     <motion.div
                         initial={{ y: 0 }}
                         animate={{ y: [0, 10, 0] }}
