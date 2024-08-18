@@ -17,7 +17,7 @@ export default function Products() {
                 <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
                     <Card isHoverable className="py-4 min-w-[300px] min-h-[380px] flex-1">
                         <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center">
-                            <Image src="/purobottle.png" width={40} height={40} />
+                            <Image src="/purobottle.png" alt="250 ml product" width={40} height={40} />
                             <h4 className="font-bold text-large text-primary hover:text-secondary">250 ml</h4>
                         </CardHeader>
                         <CardBody className="py-2 text-center">
@@ -27,7 +27,7 @@ export default function Products() {
                     </Card>
                     <Card isHoverable className="py-4 min-w-[300px] min-h-[380px] flex-1">
                         <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center">
-                            <Image src="/purobottle.png" width={40} height={40} />
+                            <Image src="/purobottle.png" alt="500 ml product" width={40} height={40} />
                             <h4 className="font-bold text-large text-primary hover:text-secondary">500 ml</h4>
                         </CardHeader>
                         <CardBody className="py-2 text-center">
@@ -37,7 +37,7 @@ export default function Products() {
                     </Card>
                     <Card isHoverable className="py-4 min-w-[300px] min-h-[380px] flex-1">
                         <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center">
-                            <Image src="/purobottle.png" width={40} height={40} />
+                            <Image src="/purobottle.png" alt="1 ltr product" width={40} height={40} />
                             <h4 className="font-bold text-large text-primary hover:text-secondary">1 ltr</h4>
                         </CardHeader>
                         <CardBody className="py-2 text-center">
