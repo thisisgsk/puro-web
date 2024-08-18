@@ -19,7 +19,7 @@ module.exports = {
         "puro-theme": {
           extend: "light",
           colors: {
-            background: "#FEFAF6",
+            background: "#FFFFFF",
             foreground: "#27272A",
             primary: {
               DEFAULT: "#67BBC4",
