@@ -28,7 +28,7 @@ export default function About() {
     };
 
     return (
-        <section className="container px-16 md:px-32">
+        <section className="container px-16 md:px-32" id="about">
             <div className="flex flex-col justify-center items-center py-10 gap-6">
                 <Chip color="secondary">About Us</Chip>
                 <h1 className="text-4xl md:text-5xl text-semibold text-center md:max-w-xl">A Trusted Name In Bottled Water Industry</h1>

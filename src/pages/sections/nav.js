@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link } from "@nextui-org/react";
 
@@ -6,10 +6,31 @@ import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Navb
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
+  useEffect(() => {
+    // Get all nav links
+    const navLinks = document.querySelectorAll('a');
+
+    // Add event listener to each link
+    navLinks.forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+
+        // Get the href attribute of the link
+        const href = link.getAttribute('href');
+
+        // Get the section element
+        const section = document.querySelector(href);
+
+        // Animate the scroll to the section
+        section.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }, []);
+
   const menuItems = [
-    "About Us",
-    "Products",
-    "Contact Us"
+    { title: "About Us", target: "about" },
+    { title: "Products", target: "products" },
+    { title: "Contact Us", target: "contact" }
   ];
 
   return (
@@ -26,21 +47,16 @@ export default function Nav() {
         </NavbarBrand>
       </NavbarContent>
       <NavbarContent className="hidden md:flex gap-16" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            About Us
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Products
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Contact Us
-          </Link>
-        </NavbarItem>
+        {menuItems.map((item, index) => (
+          <NavbarItem>
+            <a
+              key={`${item}-${index}`}
+              className="cursor-pointer text-white"
+              href={`#${item.target}`}>
+              {item.title}
+            </a>
+          </NavbarItem>
+        ))}
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="flex space-x-6">
@@ -55,10 +71,9 @@ export default function Nav() {
             <Link
               color="foreground"
               className="w-full"
-              href="#"
               size="lg"
             >
-              {item}
+              {item.title}
             </Link>
           </NavbarMenuItem>
         ))}

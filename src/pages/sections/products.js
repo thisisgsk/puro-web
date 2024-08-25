@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 
 export default function Products() {
     return (
-        <section className="container px-16 md:px-32">
+        <section className="container px-16 md:px-32" id="products">
             <div className="flex flex-col justify-center items-center py-10 gap-6">
                 <Chip color="secondary">Products</Chip>
                 <div className="flex flex-col gap-6 items-center justify-center md:flex-row">
