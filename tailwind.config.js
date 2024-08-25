@@ -20,10 +20,10 @@ module.exports = {
           extend: "light",
           colors: {
             background: "#FFFFFF",
-            foreground: "#27272A",
+            foreground: "#FFFFFF",
             primary: {
               DEFAULT: "#67BBC4",
-              foreground: "#F7FFF7"
+              foreground: "#000000"
             },
             secondary: {
               DEFAULT: "#1A535C",

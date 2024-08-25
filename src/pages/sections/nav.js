@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link } from "@nextui-org/react";
 
 
 export default function Nav() {
@@ -13,7 +13,7 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen}>
+    <Navbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen} className="bg-[#445b7c] py-1.5">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -25,7 +25,7 @@ export default function Nav() {
           </Link>
         </NavbarBrand>
       </NavbarContent>
-      <NavbarContent className="hidden md:flex gap-28" justify="center">
+      <NavbarContent className="hidden md:flex gap-16" justify="center">
         <NavbarItem>
           <Link color="foreground" href="#">
             About Us
