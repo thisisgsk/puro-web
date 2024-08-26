@@ -34,14 +34,14 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen} className="bg-[#445b7c] py-1.5">
+    <Navbar id="nav" maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen} className="bg-[#445b7c]">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="md:hidden text-white"
         />
         <NavbarBrand>
-          <Link href="#">
+          <Link href="#nav" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <Image src="/purologo.png" width={150} height={150} alt="Puro Logo" />
           </Link>
         </NavbarBrand>
