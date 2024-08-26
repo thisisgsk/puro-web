@@ -38,7 +38,7 @@ export default function Nav() {
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
+          className="md:hidden text-white"
         />
         <NavbarBrand>
           <Link href="#">
@@ -65,19 +65,23 @@ export default function Nav() {
           <Link href="#" color="foreground"><i className="fa-brands fa-square-x-twitter text-2xl"></i></Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color="foreground"
-              className="w-full"
-              size="lg"
-            >
-              {item.title}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-      </NavbarMenu>
+      {
+        isMenuOpen &&
+        <NavbarMenu className="bg-[#445b7c]">
+          {menuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <a
+                className="text-white"
+                href={`#${item.target}`}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                }}>
+                {item.title}
+              </a>
+            </NavbarMenuItem>
+          ))}
+        </NavbarMenu>
+      }
     </Navbar>
   );
 }
