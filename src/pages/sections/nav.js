@@ -34,7 +34,7 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar id="nav" maxWidth="xl" position="sticky" onMenuOpenChange={setIsMenuOpen} className="bg-[#445b7c]">
+    <Navbar id="nav" maxWidth="xl" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="bg-[#445b7c]">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -65,23 +65,20 @@ export default function Nav() {
           <Link href="#" color="foreground"><i className="fa-brands fa-square-x-twitter text-2xl"></i></Link>
         </NavbarItem>
       </NavbarContent>
-      {
-        isMenuOpen &&
-        <NavbarMenu className="bg-[#445b7c]">
-          {menuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <a
-                className="text-white"
-                href={`#${item.target}`}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                }}>
-                {item.title}
-              </a>
-            </NavbarMenuItem>
-          ))}
-        </NavbarMenu>
-      }
+      <NavbarMenu className="bg-[#445b7c]">
+        {menuItems.map((item, index) => (
+          <NavbarMenuItem key={`${item}-${index}`}>
+            <a
+              className="text-white"
+              href={`#${item.target}`}
+              onClick={() => {
+                setIsMenuOpen(false);
+              }}>
+              {item.title}
+            </a>
+          </NavbarMenuItem>
+        ))}
+      </NavbarMenu>
     </Navbar>
   );
 }
