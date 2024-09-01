@@ -19,7 +19,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section id="hero" className="container py-8 text-white bg-[#445b7c] min-h-screen">
+        <section id="hero" className="container min-h-screen">
             <motion.div
                 initial={{ y: '400%' }}
                 animate={scrollY.current > threshold ? { y: '0%' } : { y: '400%' }}
@@ -30,7 +30,7 @@ export default function Hero() {
                     <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clipRule="evenodd" />
                 </svg>
             </motion.div>
-            <div className="flex flex-col w-screen items-center justify-between text-center gap-10 px-10 mt-8 md:flex-row md:text-left">
+            <div className="flex flex-col w-screen items-center justify-between text-center gap-2 px-10 mt-8 md:flex-row md:text-left">
                 <motion.div
                     initial={{ x: '-100%', opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
@@ -60,24 +60,21 @@ export default function Hero() {
                         Contact Us
                     </Button>
                 </motion.div>
-                <motion.div
-                    initial={{ x: '100%', opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 1, ease: 'easeInOut' }}
-                    className="md:basis-1/2 pr-6 flex justify-center"
-                >
-                    <Image
-                        src="/purobottle.jpg"
-                        alt="Puro Bottle"
-                        width={500}
-                        height={500}
-                        style={{
-                            boxShadow: '20px 20px 0px 0px #67BBC4',
-                            WebkitBoxShadow: '20px 20px 0px 0px #67BBC4',
-                            MozBoxShadow: '20px 20px 0px 0px #67BBC4'
-                        }}
-                    />
-                </motion.div>
+                <div className="md:basis-1/2 pr-6 flex justify-center bg-[url('/herobg.png')] lg:bg-[length:800px_600px] bg-contain bg-no-repeat bg-center w-full h-full">
+                    <motion.div
+                        initial={{ opacity: 0, y: -100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ type: "spring", stiffness: 100, damping: 10 }}
+                    >
+                        <Image
+                            src="/purohero.png"
+                            alt="Puro Hero"
+                            width={500}
+                            height={500}
+                            className="object-cover"
+                        />
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

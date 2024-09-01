@@ -8,7 +8,7 @@ const poppins = Poppins({ subsets: ["latin"], weight: ["100", "200", "300", "400
 export default function App({ Component, pageProps }) {
   return (
     <NextUIProvider>
-      <main className={`puro-theme overflow-x-hidden bg-background text-black ${poppins.className}`}>
+      <main className={`puro-theme overflow-x-hidden ${poppins.className}`}>
         <Component {...pageProps} />
       </main>
     </NextUIProvider>

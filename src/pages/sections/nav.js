@@ -34,11 +34,11 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar id="nav" maxWidth="xl" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="bg-[#445b7c]">
+    <Navbar id="nav" maxWidth="xl" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden text-white"
+          className="md:hidden"
         />
         <NavbarBrand>
           <Link href="#nav" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -48,10 +48,9 @@ export default function Nav() {
       </NavbarContent>
       <NavbarContent className="hidden md:flex gap-16" justify="center">
         {menuItems.map((item, index) => (
-          <NavbarItem>
+          <NavbarItem key={`${item}-${index}`}>
             <a
-              key={`${item}-${index}`}
-              className="cursor-pointer text-white"
+              className="cursor-pointer"
               href={`#${item.target}`}>
               {item.title}
             </a>
@@ -60,16 +59,15 @@ export default function Nav() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="flex space-x-6">
-          <Link href="#" color="foreground"><i className="fa-brands fa-facebook text-2xl"></i></Link>
-          <Link href="#" color="foreground"><i className="fa-brands fa-square-twitter text-2xl"></i></Link>
-          <Link href="#" color="foreground"><i className="fa-brands fa-square-x-twitter text-2xl"></i></Link>
+          <Link href="#"><i className="fa-brands fa-facebook text-2xl"></i></Link>
+          <Link href="#"><i className="fa-brands fa-square-twitter text-2xl"></i></Link>
+          <Link href="#"><i className="fa-brands fa-square-x-twitter text-2xl"></i></Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu className="bg-[#445b7c]">
+      <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <a
-              className="text-white"
               href={`#${item.target}`}
               onClick={() => {
                 setIsMenuOpen(false);
