@@ -4,6 +4,7 @@ import Products from "./sections/products";
 import About from "./sections/about";
 import Hero from "./sections/hero";
 import Nav from "./sections/nav";
+import Partners from "./sections/partners";
 export default function Home() {
   return (
     <div>
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <About />
       <Products />
+      <Partners />
       <Contact />
       <Footer />
     </div>

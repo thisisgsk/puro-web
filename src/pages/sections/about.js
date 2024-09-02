@@ -1,6 +1,7 @@
 import { useRef } from "react";
-import { Chip, Card, CardHeader, CardBody } from "@nextui-org/react";
+import { Chip, Card, CardHeader, CardBody, Divider, ScrollShadow } from "@nextui-org/react";
 import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 
 export default function About() {
     const ref = useRef(null);
@@ -31,7 +32,26 @@ export default function About() {
         <section className="container px-16 md:px-32" id="about">
             <div className="flex flex-col justify-center items-center py-10 gap-6">
                 <Chip color="secondary">About Us</Chip>
-                <h1 className="text-4xl md:text-5xl text-semibold text-center md:max-w-xl">A Trusted Name In Bottled Water Industry</h1>
+                <div className="flex flex-col md:flex-row gap-6 md:p-6 justify-stretch items-center bg-secondary rounded-md shadow-lg">
+                    <div className="basis-1/3 flex justify-end py-6 px-6 md:px-0 md:pl-4">
+                        <Image
+                            src="/purobottle.jpg"
+                            alt="Puro Logo"
+                            width={400}
+                            height={400}
+                            className="rounded-md">
+                        </Image>
+                    </div>
+                    <div className="flex flex-col text-center md:leading-loose font-light pb-6 md:pb-0 md:text-left items-center basis-2/3 max-h-80 px-6 text-white">
+                        <ScrollShadow hideScrollBar>
+                            <p>At Puro, we believe that the foundation of a healthy life begins with the water we drink. That’s why we’re committed to providing you with the purest, most refreshing water, sourced directly from nature’s finest springs. Our journey started with a simple goal: to offer water that’s as close to its natural state as possible—free from contaminants, rich in essential minerals, and undeniably fresh.</p>
+                            <p>Each bottle of Puro is a testament to our dedication to quality. We carefully select and source our water from pristine environments, ensuring that it retains its natural purity throughout our meticulous filtration process. The result is water that not only quenches your thirst but also nourishes your body with the essential minerals it needs to thrive.</p>
+                            <p>But our commitment doesn’t stop at what’s inside the bottle. We’re equally passionate about protecting the planet, which is why we’ve made sustainability a core part of our mission. Our eco-friendly packaging is designed to minimize environmental impact, using recyclable materials that help reduce waste. We believe that pure water and a clean environment go hand in hand, and we’re proud to contribute to a healthier planet with every bottle we produce.</p>
+                            <p>Whether you’re reaching for our compact 250 ml bottle for a quick refreshment, our 500 ml bottle for balanced hydration on the go, or our 1-litre bottle to keep you fueled throughout the day, you can trust that Puro delivers purity in every drop. Join us in our pursuit of a healthier, more sustainable world, one bottle of pure water at a time.</p>
+                        </ScrollShadow>
+                    </div>
+                </div>
+                <h1 className="text-4xl md:text-5xl pt-4 text-semibold text-center md:max-w-xl">A Trusted Name In Bottled Water Industry</h1>
                 <i className="fa-solid fa-minus text-secondary text-6xl"></i>
                 <motion.div className="flex flex-col md:flex-row gap-6 justify-center items-center" ref={ref} variants={container} initial="hidden" animate="visible">
                     <motion.div variants={item} key={0} ref={ref}>
@@ -70,7 +90,7 @@ export default function About() {
                         </Card>
                     </motion.div>
                     <div className="hidden md:block"><i className="fa-solid fa-ellipsis-vertical text-4xl"></i></div>
-                    <motion.div variants={item} key={2} ref={ref}>
+                    <motion.div variants={item} key={3} ref={ref}>
                         <Card shadow="none" radius="none" className="py-4 min-w-[300px] min-h-[260px]">
                             <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center text-primary hover:text-secondary">
                                 <i className="fa-solid fa-medal text-6xl"></i>

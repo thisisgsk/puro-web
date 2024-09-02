@@ -12,7 +12,7 @@ export default function Nav() {
 
     // Add event listener to each link
     navLinks.forEach(link => {
-      link.addEventListener('click', event => {
+      const handleClick = event => {
         event.preventDefault();
 
         // Get the href attribute of the link
@@ -23,13 +23,17 @@ export default function Nav() {
 
         // Animate the scroll to the section
         section.scrollIntoView({ behavior: 'smooth' });
-      });
+      };
+
+      link.addEventListener('click', handleClick);
+      link.addEventListener('touchstart', handleClick);
     });
   }, []);
 
   const menuItems = [
     { title: "About Us", target: "about" },
     { title: "Products", target: "products" },
+    { title: "Partners", target: "partners" },
     { title: "Contact Us", target: "contact" }
   ];
 
@@ -59,14 +63,14 @@ export default function Nav() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="flex space-x-6">
-          <Link href="#"><i className="fa-brands fa-facebook text-2xl"></i></Link>
-          <Link href="#"><i className="fa-brands fa-square-twitter text-2xl"></i></Link>
-          <Link href="#"><i className="fa-brands fa-square-x-twitter text-2xl"></i></Link>
+          <a href="#"><i className="fa-brands fa-facebook text-2xl"></i></a>
+          <a href="#"><i class="fa-brands fa-square-whatsapp text-2xl"></i></a>
+          <a href="#"><i className="fa-brands fa-square-x-twitter text-2xl"></i></a>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
+          <NavbarMenuItem key={`${item}_${index}`}>
             <a
               href={`#${item.target}`}
               onClick={() => {
