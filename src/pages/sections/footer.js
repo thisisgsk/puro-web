@@ -3,8 +3,12 @@ import { Link, Chip } from "@nextui-org/react";
 
 export default function Footer() {
     return (
-        <footer className="w-full p-8 bg-secondary text-secondary-foreground">
-            <div className="flex flex-col md:flex-row gap-6 justify-start items-start w-[90%] mx-auto">
+        <footer className="w-full text-secondary-foreground flex flex-col">
+            <div className="flex">
+                <section className="spikedivider min-w-full h-11 animate-scroll shrink-0"></section>
+                <section className="spikedivider min-w-full h-11 animate-scroll shrink-0"></section>
+            </div>
+            <div className="flex flex-col md:flex-row gap-6 justify-start items-start px-8 py-8 md:px-32 mx-auto bg-secondary">
                 <div className="flex flex-col gap-6 justify-center items-start flex-1">
                     <Image src="/purologo.png" width={150} height={150} alt="Puro Logo" />
                     <p className="text-sm font-extralight text-left">

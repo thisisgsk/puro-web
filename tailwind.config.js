@@ -10,7 +10,22 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        rotate: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        }
+      },
+      animation: {
+        scroll: "scroll 20s linear infinite",
+        rotate: "rotate 20s linear infinite"
+      }
+    },
   },
   darkMode: "class",
   plugins: [

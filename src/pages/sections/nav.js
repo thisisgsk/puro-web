@@ -63,8 +63,8 @@ export default function Nav() {
       </NavbarContent>
       <NavbarContent justify="end">
         <NavbarItem className="flex space-x-6">
-          <a href="#"><i className="fa-brands fa-facebook text-2xl"></i></a>
-          <a href="#"><i className="fa-brands fa-square-whatsapp text-2xl"></i></a>
+          <a href="#"><i className="fa-brands fa-facebook text-2xl text-[#1877F2]"></i></a>
+          <a href="#"><i className="fa-brands fa-square-whatsapp text-2xl text-[#25D366]"></i></a>
           <a href="#"><i className="fa-brands fa-square-x-twitter text-2xl"></i></a>
         </NavbarItem>
       </NavbarContent>
