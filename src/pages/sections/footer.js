@@ -1,7 +1,15 @@
 import Image from "next/image";
-import { Link, Chip } from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
 
 export default function Footer() {
+
+    const menuItems = [
+        { title: "About Us", target: "about" },
+        { title: "Products", target: "products" },
+        { title: "Partners", target: "partners" },
+        { title: "Contact Us", target: "contact" }
+    ];
+
     return (
         <footer className="w-full text-secondary-foreground flex flex-col">
             <div className="flex">
@@ -10,7 +18,9 @@ export default function Footer() {
             </div>
             <div className="flex flex-col md:flex-row gap-6 justify-start items-start px-8 py-8 md:px-32 mx-auto bg-secondary">
                 <div className="flex flex-col gap-6 justify-center items-start flex-1">
-                    <Image src="/purologo.png" width={150} height={150} alt="Puro Logo" />
+                    <Link href="#nav" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                        <Image src="/purologo.png" width={150} height={150} alt="Puro Logo" />
+                    </Link>
                     <p className="text-sm font-extralight text-left">
                         Experience the essence of nature with every sip of Puro.
                         Sourced from the purest springs and carefully filtered to maintain its natural minerals,
@@ -22,10 +32,16 @@ export default function Footer() {
                     <div className="flex flex-col justify-start items-start md:pl-24 md:pt-4">
                         <h3 className="text-2xl">Explore</h3>
                         <i className="fa-solid fa-minus"></i>
-                        <Link href="#" color="foreground" alt="Home">Home</Link>
-                        <Link href="#" color="foreground" alt="About Us">About Us</Link>
-                        <Link href="#" color="foreground" alt="Products">Products</Link>
-                        <Link href="#" color="foreground" alt="Contact Us">Contact Us</Link>
+                        {menuItems.map((item, index) => (
+                            <Link
+                                href={`#${item.target}`}
+                                key={`${item}__${index}`}
+                                color="foreground"
+                                alt={item.title}
+                            >
+                                {item.title}
+                            </Link>
+                        ))}
                     </div>
                 </div>
                 <div className="flex flex-col justify-start items-start flex-1 md:pt-4">
