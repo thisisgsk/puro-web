@@ -10,7 +10,22 @@ module.exports = {
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        rotate: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        }
+      },
+      animation: {
+        scroll: "scroll 20s linear infinite",
+        rotate: "rotate 20s linear infinite"
+      }
+    },
   },
   darkMode: "class",
   plugins: [
@@ -19,11 +34,11 @@ module.exports = {
         "puro-theme": {
           extend: "light",
           colors: {
-            background: "#FEFAF6",
-            foreground: "#27272A",
+            background: "#FFFFFF",
+            foreground: "#FFFFFF",
             primary: {
               DEFAULT: "#67BBC4",
-              foreground: "#F7FFF7"
+              foreground: "#000000"
             },
             secondary: {
               DEFAULT: "#1A535C",
