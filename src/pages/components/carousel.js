@@ -11,10 +11,6 @@ const EmblaCarousel = (props) => {
     ])
     const [isPlaying, setIsPlaying] = useState(false)
 
-    if (!Array.isArray(slides)) {
-        return <div>No slides provided</div>;
-    }
-
     useEffect(() => {
         const autoScroll = emblaApi?.plugins()?.autoScroll
         if (!autoScroll) return
@@ -25,6 +21,10 @@ const EmblaCarousel = (props) => {
             .on('autoScroll:stop', () => setIsPlaying(false))
             .on('reInit', () => setIsPlaying(autoScroll.isPlaying()))
     }, [emblaApi])
+
+    if (!Array.isArray(slides)) {
+        return <div>No slides provided</div>;
+    }
 
     return (
         <ScrollShadow hideScrollBar className="max-w-[1200px] m-auto" ref={emblaRef}>
