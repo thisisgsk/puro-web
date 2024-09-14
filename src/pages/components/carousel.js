@@ -11,6 +11,10 @@ const EmblaCarousel = (props) => {
     ])
     const [isPlaying, setIsPlaying] = useState(false)
 
+    if (!Array.isArray(slides)) {
+        return <div>No slides provided</div>;
+    }
+
     useEffect(() => {
         const autoScroll = emblaApi?.plugins()?.autoScroll
         if (!autoScroll) return
