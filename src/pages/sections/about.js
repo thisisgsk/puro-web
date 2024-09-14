@@ -98,7 +98,7 @@ export default function About() {
                                     <h4 className="font-bold text-large">Chlorine Free</h4>
                                 </CardHeader>
                                 <CardBody className="overflow-visible py-2 text-center text-[#000000]">
-                                    We serve our water chlorine free to think about clients' lives since chlorine causes serious damage to our health.
+                                    We serve our water chlorine free to think about clients&apos; lives since chlorine causes serious damage to our health.
                                 </CardBody>
                             </Card>
                         </motion.div>

@@ -53,7 +53,7 @@ export default function Hero() {
                     <p className="w-3/4 font-light">
                         Experience the essence of nature with every sip of Puro.
                         Sourced from the purest springs and carefully filtered to maintain its natural minerals,
-                        Puro offers refreshment that's as clean and crisp as the mountain air. Hydrate with confidence,
+                        Puro offers refreshment that&apos;s as clean and crisp as the mountain air. Hydrate with confidence,
                         knowing that every drop is a testament to purity.
                     </p>
                     <Button color="primary" size="lg">
