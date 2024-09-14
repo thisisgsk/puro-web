@@ -14,7 +14,7 @@ export default function Footer() {
                     <p className="text-sm font-extralight text-left">
                         Experience the essence of nature with every sip of Puro.
                         Sourced from the purest springs and carefully filtered to maintain its natural minerals,
-                        Puro offers refreshment that's as clean and crisp as the mountain air. Hydrate with confidence,
+                        Puro offers refreshment that&apos;s as clean and crisp as the mountain air. Hydrate with confidence,
                         knowing that every drop is a testament to purity.
                     </p>
                 </div>

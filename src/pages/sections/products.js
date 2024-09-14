@@ -48,7 +48,7 @@ export default function Products() {
                                 </CardHeader>
                                 <CardBody className="py-2 text-center text-[#000000]">
                                     Perfect for quick hydration, the 250 ml Puro bottle is your ideal companion for a morning jog or a busy day.
-                                    Small in size, but big on purity, it's easy to slip into your bag for refreshment whenever you need it.
+                                    Small in size, but big on purity, it&apos;s easy to slip into your bag for refreshment whenever you need it.
                                 </CardBody>
                             </Card>
                         </motion.div>
@@ -82,7 +82,7 @@ export default function Products() {
                                 </CardHeader>
                                 <CardBody className="py-2 text-center text-[#000000]">
                                     When you need long-lasting hydration, the 1-litre Puro bottle has you covered. Perfect for road trips,
-                                    outdoor adventures, or a busy workday, it's your source of pure water for hours on end.
+                                    outdoor adventures, or a busy workday, it&apos;s your source of pure water for hours on end.
                                 </CardBody>
                             </Card>
                         </motion.div>
