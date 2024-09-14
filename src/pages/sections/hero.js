@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { motion, useCycle, useScroll, useMotionValueEvent } from "framer-motion";
-import { Chip, Button } from "@nextui-org/react";
+import { motion, useCycle, useScroll } from "framer-motion";
+import { Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Chip, Button, useDisclosure } from "@nextui-org/react";
 
 const words = ['Hydration', 'Refreshment', 'Wellness', 'Clarity'];
 
@@ -17,6 +17,8 @@ export default function Hero() {
         }, 2000);
         return () => clearInterval(intervalId);
     }, []);
+
+    const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     return (
         <section id="hero" className="container min-h-screen">
@@ -56,10 +58,32 @@ export default function Hero() {
                         Puro offers refreshment that&apos;s as clean and crisp as the mountain air. Hydrate with confidence,
                         knowing that every drop is a testament to purity.
                     </p>
-                    <Button color="primary" size="lg">
+                    <Button color="primary" size="lg" onPress={onOpen}>
                         Contact Us
                     </Button>
                 </motion.div>
+                <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                    <ModalContent>
+                        {(onClose) => (
+                            <>
+                                <ModalBody>
+                                    <div className="flex flex-col gap-6 items-center justify-center">
+                                        <h1 className="text-4xl md:text-5xl text-semibold text-center py-5">Contact Us</h1>
+                                        <Input isClearable type="text" label="Full Name" />
+                                        <Input isClearable type="phone" label="Contact No." />
+                                        <Input isClearable type="email" label="Email" />
+                                    </div>
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color="danger" variant="light" onPress={onClose}>
+                                        Close
+                                    </Button>
+                                    <Button color="primary" onPress={onClose}>Submit</Button>
+                                </ModalFooter>
+                            </>
+                        )}
+                    </ModalContent>
+                </Modal>
                 <div className="md:basis-1/2 pr-6 flex justify-center bg-[url('/herobg.png')] lg:bg-[length:800px_600px] bg-contain bg-no-repeat bg-center w-full h-full">
                     <motion.div
                         initial={{ opacity: 0, y: -100 }}
