@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion, useCycle, useScroll } from "framer-motion";
-import { Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Chip, Button, useDisclosure } from "@nextui-org/react";
+import { Input, Modal, ModalContent, Textarea, ModalHeader, ModalBody, ModalFooter, Chip, Button, useDisclosure } from "@nextui-org/react";
 
 const words = ['Hydration', 'Refreshment', 'Wellness', 'Clarity'];
 
@@ -72,6 +72,10 @@ export default function Hero() {
                                         <Input isClearable type="text" label="Full Name" />
                                         <Input isClearable type="phone" label="Contact No." />
                                         <Input isClearable type="email" label="Email" />
+                                        <Textarea
+                                            label="Message"
+                                            placeholder="What's on your mind?"
+                                        />
                                     </div>
                                 </ModalBody>
                                 <ModalFooter>
@@ -84,7 +88,7 @@ export default function Hero() {
                         )}
                     </ModalContent>
                 </Modal>
-                <div className="md:basis-1/2 pr-6 flex justify-center bg-[url('/herobg.png')] lg:bg-[length:800px_600px] bg-contain bg-no-repeat bg-center w-full h-full">
+                <div className="md:basis-1/2 pr-6 flex justify-center bg-[url('/herobg.png')] bg-cover bg-no-repeat bg-center w-full h-full">
                     <motion.div
                         initial={{ opacity: 0, y: -100 }}
                         animate={{ opacity: 1, y: 0 }}

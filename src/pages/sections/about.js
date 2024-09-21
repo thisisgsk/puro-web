@@ -110,7 +110,7 @@ export default function About() {
                                     <h4 className="font-bold text-large">Quality Certified</h4>
                                 </CardHeader>
                                 <CardBody className="overflow-visible py-2 text-center text-[#000000]">
-                                    Our water quality is certified in several countries (BD, USA, UK, UAE) due to the purity of the water.
+                                    Our water quality is certified in several countries (IN, USA, UK, UAE, AUS) due to the purity of the water.
                                 </CardBody>
                             </Card>
                         </motion.div>
