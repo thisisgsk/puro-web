@@ -103,8 +103,22 @@ export default function Hero() {
                     {(onClose) => (
                         <>
                             <ModalBody>
-                                <IframeComponent />
+                                <div className="flex flex-col gap-6 items-center justify-center">
+                                    <h1 className="text-4xl md:text-5xl text-semibold text-center py-5">Contact Us</h1>
+                                    <Input type="text" label="Full Name" />
+                                    <Input type="phone" label="Contact No." />
+                                    <Input type="email" label="Email" />
+                                    <Textarea
+                                        label="Message"
+                                    />
+                                </div>
                             </ModalBody>
+                            <ModalFooter>
+                                <Button color="danger" variant="light" onPress={onClose}>
+                                    Close
+                                </Button>
+                                <Button color="primary" onPress={onClose}>Submit</Button>
+                            </ModalFooter>
                         </>
                     )}
                 </ModalContent>
