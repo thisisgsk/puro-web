@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, NavbarContent, NavbarItem, Link } from "@nextui-org/react";
 
-
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -18,11 +17,13 @@ export default function Nav() {
         // Get the href attribute of the link
         const href = link.getAttribute('href');
 
-        // Get the section element
-        const section = document.querySelector(href);
+        if (href?.includes('#')) {
+          // Get the section element
+          const section = document.querySelector(href);
 
-        // Animate the scroll to the section
-        section.scrollIntoView({ behavior: 'smooth' });
+          // Animate the scroll to the section
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
       };
 
       link.addEventListener('click', handleClick);
@@ -38,7 +39,7 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar id="nav" maxWidth="xl" position="sticky" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+    <Navbar id="nav" maxWidth="xl" position="sticky" className="py-2" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -62,12 +63,24 @@ export default function Nav() {
         ))}
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="flex space-x-6">
-          <a href="#"><i className="fa-brands fa-facebook text-2xl text-[#1877F2]"></i></a>
-          <a href="#"><i className="fa-brands fa-square-instagram text-2xl text-[#E1306C]"></i></a>
-          <a href="#"><i className="fa-brands fa-square-x-twitter text-2xl"></i></a>
-          <a href="#"><i className="fa-brands fa-youtube text-2xl text-[#FF0000]"></i></a>
-          <a href="#"><i className="fa-brands fa-square-whatsapp text-2xl text-[#25D366]"></i></a>
+        <NavbarItem className="flex space-x-3">
+          <a href="https://www.facebook.com/profile.php?id=61566393685261" onPointerDown={(event) => {
+            event.preventDefault();
+            window.open('https://www.facebook.com/profile.php?id=61566393685261');
+          }}><i className="fa-brands fa-facebook text-xl text-[#1877F2]"></i></a>
+          <a href="https://www.instagram.com/purobeverages/" onPointerDown={(event) => {
+            event.preventDefault();
+            window.open('https://www.instagram.com/purobeverages/');
+          }}><i className="fa-brands fa-square-instagram text-xl text-[#E1306C]"></i></a>
+          <a href="https://x.com/purobeverages?s=21&t=1cBA_x9Rns3umYfsu-E2BA" onPointerDown={(event) => {
+            event.preventDefault();
+            window.open('https://x.com/purobeverages?s=21&t=1cBA_x9Rns3umYfsu-E2BA');
+          }}><i className="fa-brands fa-square-x-twitter text-xl"></i></a>
+          <a href="https://www.youtube.com/@purobeverages" onPointerDown={(event) => {
+            event.preventDefault();
+            window.open('https://www.youtube.com/@purobeverages');
+          }}><i className="fa-brands fa-youtube text-xl text-[#FF0000]"></i></a>
+          <a href="#"><i className="fa-brands fa-square-whatsapp text-xl text-[#25D366]"></i></a>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
