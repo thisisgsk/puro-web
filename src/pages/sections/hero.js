@@ -20,6 +20,26 @@ export default function Hero() {
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
+    const IframeComponent = () => {
+        return (
+            <iframe
+                width="540"
+                height="80"
+                src="https://d527d223.sibforms.com/serve/MUIFADWHw2lvWlFrP_vDKkq13jdtpAuzxY0aOJHNN8DuwH5ht--8YLnIdvOC1AMpEFRwFWkSl0EDJnfyI3J4IV1ZwG5O0cqToHjziUQ-LXOrIsbXWmkX1PIdenO8AZsyi9oDVox1kThM_LSf06I9VryXwjO6XhkJiateVbtfzqJu2N3NbL1ez3XGyGTmckMlptb0IdSp0FL48KkM"
+                frameBorder="0"
+                scrolling="auto"
+                allowFullScreen
+                style={{
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    maxWidth: '100%',
+                    height: '900px',
+                }}
+            ></iframe>
+        );
+    };
+
     return (
         <section id="hero" className="container min-h-screen">
             <motion.div
@@ -62,32 +82,6 @@ export default function Hero() {
                         Contact Us
                     </Button>
                 </motion.div>
-                <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-                    <ModalContent>
-                        {(onClose) => (
-                            <>
-                                <ModalBody>
-                                    <div className="flex flex-col gap-6 items-center justify-center">
-                                        <h1 className="text-4xl md:text-5xl text-semibold text-center py-5">Contact Us</h1>
-                                        <Input isClearable type="text" label="Full Name" />
-                                        <Input isClearable type="phone" label="Contact No." />
-                                        <Input isClearable type="email" label="Email" />
-                                        <Textarea
-                                            label="Message"
-                                            placeholder="What's on your mind?"
-                                        />
-                                    </div>
-                                </ModalBody>
-                                <ModalFooter>
-                                    <Button color="danger" variant="light" onPress={onClose}>
-                                        Close
-                                    </Button>
-                                    <Button color="primary" onPress={onClose}>Submit</Button>
-                                </ModalFooter>
-                            </>
-                        )}
-                    </ModalContent>
-                </Modal>
                 <div className="md:basis-1/2 pr-6 flex justify-center bg-[url('/herobg.png')] bg-cover bg-no-repeat bg-center w-full h-full">
                     <motion.div
                         initial={{ opacity: 0, y: -100 }}
@@ -104,6 +98,17 @@ export default function Hero() {
                     </motion.div>
                 </div>
             </div>
+            <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+                <ModalContent>
+                    {(onClose) => (
+                        <>
+                            <ModalBody>
+                                <IframeComponent />
+                            </ModalBody>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
         </section>
     );
 }

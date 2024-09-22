@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Link, Divider } from "@nextui-org/react";
+import { Link } from "@nextui-org/react";
 
 export default function Footer() {
 
@@ -48,7 +48,7 @@ export default function Footer() {
                     <div className="flex flex-col justify-start items-start flex-1 md:pt-4">
                         <h3 className="text-2xl">Contact</h3>
                         <i className="fa-solid fa-minus"></i>
-                        <div className="flex items-center gap-2"><i className="fa-solid fa-square-phone"></i> +91 8331800888</div>
+                        <div className="flex items-center gap-2"><i className="fa-solid fa-square-phone"></i> +91 9039034455</div>
                         <div className="flex items-center gap-2"><i className="fa-solid fa-envelope"></i> purobeverages@gmail.com</div>
                         <div className="flex items-start gap-2"><i className="fa-solid fa-location-dot pt-1"></i> Plot No. 7, Water Front Enclave, Vaishalinagar, Madinaguda, Hyderabad-500049</div>
                     </div>
@@ -57,19 +57,31 @@ export default function Footer() {
                             <h3 className="text-2xl">Follow Us</h3>
                             <i className="fa-solid fa-minus"></i>
                             <div className="flex gap-4">
-                                <Link href="#" color="secondary-foreground"><i className="fa-brands fa-facebook text-2xl"></i></Link>
-                                <Link href="#" color="secondary-foreground"><i className="fa-brands fa-square-instagram text-2xl"></i></Link>
-                                <Link href="#" color="secondary-foreground"><i className="fa-brands fa-square-x-twitter text-2xl"></i></Link>
-                                <Link href="#" color="secondary-foreground"><i className="fa-brands fa-youtube text-2xl"></i></Link>
-                                <Link href="#" color="secondary-foreground"><i className="fa-brands fa-square-whatsapp text-2xl"></i></Link>
+                                <Link href="https://www.facebook.com/profile.php?id=61566393685261" onPointerDown={(event) => {
+                                    event.preventDefault();
+                                    window.open('https://www.facebook.com/profile.php?id=61566393685261');
+                                }} color="secondary-foreground"><i className="fa-brands fa-facebook text-xl"></i></Link>
+                                <Link href="https://www.instagram.com/purobeverages/" onPointerDown={(event) => {
+                                    event.preventDefault();
+                                    window.open('https://www.instagram.com/purobeverages/');
+                                }} color="secondary-foreground"><i className="fa-brands fa-square-instagram text-xl"></i></Link>
+                                <Link href="https://x.com/purobeverages?s=21&t=1cBA_x9Rns3umYfsu-E2BA" onPointerDown={(event) => {
+                                    event.preventDefault();
+                                    window.open('https://x.com/purobeverages?s=21&t=1cBA_x9Rns3umYfsu-E2BA');
+                                }} color="secondary-foreground"><i className="fa-brands fa-square-x-twitter text-xl"></i></Link>
+                                <Link href="https://www.youtube.com/@purobeverages" onPointerDown={(event) => {
+                                    event.preventDefault();
+                                    window.open('https://www.youtube.com/@purobeverages');
+                                }} color="secondary-foreground"><i className="fa-brands fa-youtube text-xl"></i></Link>
+                                <Link href="#" color="secondary-foreground"><i className="fa-brands fa-square-whatsapp text-xl"></i></Link>
                             </div>
                         </div>
                     </div>
                 </div >
                 <div className="bg-white h-[1px] w-[90%]"></div>
                 <div className="flex flex-col md:flex-row justify-around items-center gap-6 md:gap-96 mb-6">
-                    <p className="text-sm font-extralight text-center">Copyright © 2024 Fabulous Beverages Pvt. Ltd. All rights reserved.</p>
-                    <p className="text-sm font-extralight text-center">Designed by AddSpark Solutions</p>
+                    <p className="text-sm font-extralight text-center px-4 md:px-0">Copyright © 2024 Fabulous Beverages Pvt. Ltd. All rights reserved.</p>
+                    <p className="text-sm font-extralight text-center">Designed by Add Spark Solutions</p>
                 </div>
             </div>
         </footer >
