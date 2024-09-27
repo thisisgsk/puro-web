@@ -41,7 +41,7 @@ export default function Products() {
                             transition={{ duration: 0.5 }}
                             className="flex-1 rounded-lg border-medium"
                         >
-                            <Card shadow="none" className="min-w-[300px] min-h-[550px]">
+                            <Card shadow="none" className="min-w-[300px] min-h-[480px]">
                                 <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center">
                                     <Image src="/puro250.jpg" alt="250 ml product" width="100%" className="object-cover" />
                                     <h4 className="font-bold text-large text-primary hover:text-secondary">250 ml</h4>
@@ -58,7 +58,7 @@ export default function Products() {
                             transition={{ duration: 0.5 }}
                             className="flex-1 rounded-lg border-medium"
                         >
-                            <Card shadow="none" className="min-w-[300px] min-h-[550px]">
+                            <Card shadow="none" className="min-w-[300px] min-h-[480px]">
                                 <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center">
                                     <Image src="/puro500.jpg" alt="500 ml product" width="100%" className="object-cover" />
                                     <h4 className="font-bold text-large text-primary hover:text-secondary">500 ml</h4>
@@ -75,7 +75,7 @@ export default function Products() {
                             transition={{ duration: 0.5 }}
                             className="flex-1 rounded-lg border-medium"
                         >
-                            <Card shadow="none" className="min-w-[300px] min-h-[550px]">
+                            <Card shadow="none" className="min-w-[300px] min-h-[480px]">
                                 <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center">
                                     <Image src="/puro1.jpg" alt="1 ltr product" width="100%" className="object-cover" />
                                     <h4 className="font-bold text-large text-primary hover:text-secondary">1 ltr</h4>
@@ -83,6 +83,23 @@ export default function Products() {
                                 <CardBody className="py-2 text-center text-[#000000]">
                                     When you need long-lasting hydration, the 1-litre Puro bottle has you covered. Perfect for road trips,
                                     outdoor adventures, or a busy workday, it&apos;s your source of pure water for hours on end.
+                                </CardBody>
+                            </Card>
+                        </motion.div>
+                        <motion.div
+                            initial={{ boxShadow: "0 0 0 0 rgba(0,0,0,0.2)", scale: 1 }}
+                            whileHover={{ boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)", scale: 1.02 }}
+                            transition={{ duration: 0.5 }}
+                            className="flex-1 rounded-lg border-medium"
+                        >
+                            <Card shadow="none" className="min-w-[300px] min-h-[480px]">
+                                <CardHeader className="pb-0 pt-2 px-4 gap-4 flex-col items-center">
+                                    <Image src="/custom.jpg" alt="1 ltr product" width="100%" className="object-cover" />
+                                    <h4 className="font-bold text-large text-primary hover:text-secondary">Customized</h4>
+                                </CardHeader>
+                                <CardBody className="py-2 text-center text-[#000000]">
+                                    <strong>"Create your own story with Puro – attach your brand, and let your business flow!"</strong>
+                                    This emphasizes the personalization aspect, allowing buyers to see Puro as a platform for their own brand's identity.
                                 </CardBody>
                             </Card>
                         </motion.div>

@@ -1,11 +1,23 @@
 import React from "react";
 import Image from "next/image";
+import { sendGTMEvent } from '@next/third-parties/google'
 import { motion, useCycle, useScroll } from "framer-motion";
 import { Input, Modal, ModalContent, Textarea, ModalHeader, ModalBody, ModalFooter, Chip, Button, useDisclosure } from "@nextui-org/react";
 
 const words = ['Hydration', 'Refreshment', 'Wellness', 'Clarity'];
 
 export default function Hero() {
+
+    const [name, setName] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const [email, setEmail] = React.useState('');
+    const [message, setMessage] = React.useState('');
+
+    const handleNameChange = (e) => setName(e.target.value);
+    const handlePhoneChange = (e) => setPhone(e.target.value);
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handleMessageChange = (e) => setMessage(e.target.value);
+
     const [wordIndex, cycle] = useCycle(0, 1, 2, 3);
 
     const { scrollY } = useScroll();
@@ -20,24 +32,31 @@ export default function Hero() {
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-    const IframeComponent = () => {
-        return (
-            <iframe
-                width="540"
-                height="80"
-                src="https://d527d223.sibforms.com/serve/MUIFADWHw2lvWlFrP_vDKkq13jdtpAuzxY0aOJHNN8DuwH5ht--8YLnIdvOC1AMpEFRwFWkSl0EDJnfyI3J4IV1ZwG5O0cqToHjziUQ-LXOrIsbXWmkX1PIdenO8AZsyi9oDVox1kThM_LSf06I9VryXwjO6XhkJiateVbtfzqJu2N3NbL1ez3XGyGTmckMlptb0IdSp0FL48KkM"
-                frameBorder="0"
-                scrolling="auto"
-                allowFullScreen
-                style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    maxWidth: '100%',
-                    height: '900px',
-                }}
-            ></iframe>
-        );
+    async function handleSubmit(e) {
+        e.preventDefault();
+        if (name && phone && email && message) {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: "089dd47b-2c20-4eb2-bde7-be38a85e3433",
+                    name,
+                    phone,
+                    email,
+                    message,
+                }),
+            });
+            const result = await response.json();
+            if (result.success) {
+                setName('');
+                setPhone('');
+                setEmail('');
+                setMessage('');
+            }
+        }
     };
 
     return (
@@ -78,7 +97,10 @@ export default function Hero() {
                         Puro offers refreshment that&apos;s as clean and crisp as the mountain air. Hydrate with confidence,
                         knowing that every drop is a testament to purity.
                     </p>
-                    <Button color="primary" size="lg" onPress={onOpen}>
+                    <Button color="primary" size="lg" onPress={() => {
+                        onOpen();
+                        sendGTMEvent({ action: 'click', category: 'button', label: 'contact us' });
+                    }}>
                         Contact Us
                     </Button>
                 </motion.div>
@@ -102,23 +124,54 @@ export default function Hero() {
                 <ModalContent>
                     {(onClose) => (
                         <>
-                            <ModalBody>
-                                <div className="flex flex-col gap-6 items-center justify-center">
-                                    <h1 className="text-4xl md:text-5xl text-semibold text-center py-5">Contact Us</h1>
-                                    <Input type="text" label="Full Name" />
-                                    <Input type="phone" label="Contact No." />
-                                    <Input type="email" label="Email" />
-                                    <Textarea
-                                        label="Message"
-                                    />
-                                </div>
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button color="danger" variant="light" onPress={onClose}>
-                                    Close
-                                </Button>
-                                <Button color="primary" onPress={onClose}>Submit</Button>
-                            </ModalFooter>
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-6 w-full">
+
+                                <ModalBody>
+                                    <div className="flex flex-col gap-6 items-center justify-center">
+                                        <h1 className="text-4xl md:text-5xl text-semibold text-center py-5">Contact Us</h1>
+                                        <Input
+                                            type="text"
+                                            label="Full Name"
+                                            value={name}
+                                            onChange={handleNameChange}
+                                            validationBehavior="native"
+                                            isRequired
+                                        />
+                                        <Input
+                                            type="phone"
+                                            label="Contact No."
+                                            value={phone}
+                                            onChange={handlePhoneChange}
+                                            validationBehavior="native"
+                                            isRequired
+                                        />
+                                        <Input
+                                            type="email"
+                                            label="Email"
+                                            value={email}
+                                            onChange={handleEmailChange}
+                                            validationBehavior="native"
+                                        />
+                                        <Textarea
+                                            label="Message"
+                                            placeholder="What's on your mind?"
+                                            value={message}
+                                            onChange={handleMessageChange}
+                                        />
+                                    </div>
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color="danger" variant="light" onPress={onClose}>
+                                        Close
+                                    </Button>
+                                    <Button color="primary" type="submit" onPress={() => {
+                                        sendGTMEvent({ action: 'click', category: 'button', label: 'submit' });
+                                        setTimeout(() => {
+                                            onClose();
+                                        }, 3000)
+                                    }}>Submit</Button>
+                                </ModalFooter>
+                            </form>
                         </>
                     )}
                 </ModalContent>
