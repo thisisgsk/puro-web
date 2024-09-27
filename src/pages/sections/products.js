@@ -98,8 +98,8 @@ export default function Products() {
                                     <h4 className="font-bold text-large text-primary hover:text-secondary">Customized</h4>
                                 </CardHeader>
                                 <CardBody className="py-2 text-center text-[#000000]">
-                                    <strong>"Create your own story with Puro – attach your brand, and let your business flow!"</strong>
-                                    This emphasizes the personalization aspect, allowing buyers to see Puro as a platform for their own brand's identity.
+                                    <strong>&quot;Create your own story with Puro – attach your brand, and let your business flow!&quot;</strong>
+                                    This emphasizes the personalization aspect, allowing buyers to see Puro as a platform for their own brand&apos;s identity.
                                 </CardBody>
                             </Card>
                         </motion.div>
