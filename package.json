@@ -10,13 +10,14 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.6.0",
+    "@next/third-parties": "^14.2.13",
     "@nextui-org/react": "^2.4.6",
     "embla-carousel-auto-scroll": "^8.2.0",
     "embla-carousel-react": "^8.2.0",
     "framer-motion": "^11.3.28",
-    "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "^14.2.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/node": "22.4.0",

@@ -1,5 +1,6 @@
 import { Chip, Input, Button, Textarea } from "@nextui-org/react";
 import React from "react";
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export default function Contact() {
 
@@ -8,42 +9,44 @@ export default function Contact() {
     const [email, setEmail] = React.useState('');
     const [message, setMessage] = React.useState('');
 
+    const [isSubmitted, setSubmitted] = React.useState(false);
+
     const handleNameChange = (e) => setName(e.target.value);
     const handlePhoneChange = (e) => setPhone(e.target.value);
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handleMessageChange = (e) => setMessage(e.target.value);
 
-    const handleSubmit = (e) => {
+    async function handleSubmit(e) {
         e.preventDefault();
         if (name && phone && email && message) {
-            const body = {
-                name,
-                phone,
-                email,
-                message
-            };
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
+                body: JSON.stringify({
+                    access_key: "089dd47b-2c20-4eb2-bde7-be38a85e3433",
+                    name,
+                    phone,
+                    email,
+                    message,
+                }),
+            });
+            const result = await response.json();
+            if (result.success) {
+                setSubmitted(true);
+                setName('');
+                setPhone('');
+                setEmail('');
+                setMessage('');
+                setTimeout(() => {
+                    setSubmitted(false);
+                }, 3000)
+            }
         }
     };
 
-    const IframeComponent = () => {
-        return (
-            <iframe
-                width="540"
-                height="80"
-                src="https://d527d223.sibforms.com/serve/MUIFADWHw2lvWlFrP_vDKkq13jdtpAuzxY0aOJHNN8DuwH5ht--8YLnIdvOC1AMpEFRwFWkSl0EDJnfyI3J4IV1ZwG5O0cqToHjziUQ-LXOrIsbXWmkX1PIdenO8AZsyi9oDVox1kThM_LSf06I9VryXwjO6XhkJiateVbtfzqJu2N3NbL1ez3XGyGTmckMlptb0IdSp0FL48KkM"
-                frameBorder="0"
-                scrolling="auto"
-                allowFullScreen
-                style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    maxWidth: '100%',
-                    height: '900px',
-                }}
-            ></iframe>
-        );
-    };
     return (
         <section className="container px-16 md:px-32" id="contact">
             <div className="flex flex-col justify-center items-center py-10 gap-6">
@@ -80,7 +83,10 @@ export default function Contact() {
                             value={message}
                             onChange={handleMessageChange}
                         />
-                        <Button type="submit" color="primary">Submit</Button>
+                        <Button type="submit" color="primary" onPress={() => {
+                            sendGTMEvent({ action: 'click', category: 'button', label: 'submit' });
+                        }}>Submit</Button>
+                        {isSubmitted && <p className="text-center text-medium text-green-800 font-semibold">Thank you for your message! <br />We will get back to you soon.</p>}
                     </form>
                 </div>
             </div>
