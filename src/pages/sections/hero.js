@@ -154,7 +154,6 @@ export default function Hero() {
                                         />
                                         <Textarea
                                             label="Message"
-                                            placeholder="What's on your mind?"
                                             value={message}
                                             onChange={handleMessageChange}
                                         />
