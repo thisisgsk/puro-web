@@ -79,7 +79,6 @@ export default function Contact() {
                         />
                         <Textarea
                             label="Message"
-                            placeholder="What's on your mind?"
                             value={message}
                             onChange={handleMessageChange}
                         />
