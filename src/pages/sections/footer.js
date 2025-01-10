@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Link } from "@nextui-org/react";
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export default function Footer() {
 
@@ -81,7 +82,9 @@ export default function Footer() {
                 <div className="bg-white h-[1px] w-[90%]"></div>
                 <div className="flex flex-col md:flex-row justify-around items-center gap-6 md:gap-96 mb-6">
                     <p className="text-sm font-extralight text-center px-4 md:px-0">Copyright © 2024 Fabulous Beverages Pvt. Ltd. All rights reserved.</p>
-                    <p className="text-sm font-extralight text-center">Designed by Add Spark Solutions</p>
+                    <p className="text-sm font-extralight text-center">Designed by <a href="https://addspark.in/" target="_blank" onClick={(event) => {
+                        sendGTMEvent({ action: 'click', category: 'link', label: 'website' });
+                    }}>Add Spark Solutions</a></p>
                 </div>
             </div>
         </footer >
