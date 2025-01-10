@@ -83,7 +83,9 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-around items-center gap-6 md:gap-96 mb-6">
                     <p className="text-sm font-extralight text-center px-4 md:px-0">Copyright © 2024 Fabulous Beverages Pvt. Ltd. All rights reserved.</p>
                     <p className="text-sm font-extralight text-center">Designed by <a href="https://addspark.in/" target="_blank" onClick={(event) => {
+                        event.preventDefault();
                         sendGTMEvent({ action: 'click', category: 'link', label: 'website' });
+                        window.open('https://addspark.in/');
                     }}>Add Spark Solutions</a></p>
                 </div>
             </div>
