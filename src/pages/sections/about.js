@@ -1,3 +1,4 @@
+"use client";
 import { useRef } from "react";
 import { Chip, Card, CardHeader, CardBody, ScrollShadow } from "@nextui-org/react";
 import { motion, useInView } from "framer-motion";
