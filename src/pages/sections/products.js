@@ -1,6 +1,6 @@
-import { useRef } from "react";
+"use client";
 import { Image, Chip, Card, CardHeader, CardBody } from "@nextui-org/react";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Products() {
     return (

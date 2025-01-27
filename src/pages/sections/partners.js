@@ -1,3 +1,4 @@
+"use client";
 import { Chip } from "@nextui-org/react";
 import EmblaCarousel from "../components/carousel";
 import { motion } from "framer-motion";

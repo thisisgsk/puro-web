@@ -1,8 +1,9 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import { sendGTMEvent } from '@next/third-parties/google'
 import { motion, useCycle, useScroll } from "framer-motion";
-import { Input, Modal, ModalContent, Textarea, ModalHeader, ModalBody, ModalFooter, Chip, Button, useDisclosure } from "@nextui-org/react";
+import { Input, Modal, ModalContent, Textarea, ModalBody, ModalFooter, Chip, Button, useDisclosure } from "@nextui-org/react";
 
 const words = ['Hydration', 'Refreshment', 'Wellness', 'Clarity'];
 
